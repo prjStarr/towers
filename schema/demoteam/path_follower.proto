@@ -1,0 +1,19 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+message PathFollowerData {
+  optional double pathDistance = 1;
+}
+
+extend improbable.EntityState {
+  optional PathFollowerData pathFollower = 1001
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: false
+    }];
+}
+     

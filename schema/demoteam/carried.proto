@@ -1,0 +1,19 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+message CarriedData {
+  optional int64 carrierId = 1 [(improbable.entity_id) = true, (improbable.option) = true];
+}
+
+extend improbable.EntityState {
+  optional CarriedData carried = 1010
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: true
+    }];
+}
+     

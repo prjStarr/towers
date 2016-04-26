@@ -1,0 +1,13 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+enum BuildGeometry {
+  CYLINDER = 0;
+  CUBOID = 1;
+  PYRAMID = 2;
+}
+       

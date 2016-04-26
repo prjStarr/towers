@@ -1,0 +1,19 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+message PhysicalTargetingData {
+  repeated int64 targetCandidates = 1 [(improbable.entity_id) = true];
+}
+
+extend improbable.EntityState {
+  optional PhysicalTargetingData physicalTargeting = 1003
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: false
+    }];
+}
+     

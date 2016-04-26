@@ -1,0 +1,31 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+message BuildData {
+  // Dynamic number of blocks
+  optional int32 numBlocks = 1;
+  // Complete if numBlocks==maxBlocks
+  optional int32 maxBlocks = 2;
+  // Number of blocks in the xz
+  optional int32 numBase = 3;
+  // Number of blocks in the y
+  optional int32 numHeight = 4;
+  // ScaleFactor in the xz
+  optional float radMultipler = 5;
+  // ScaleFactor in the y
+  optional float heightMultiplier = 6;
+  repeated int64 associatedEntities = 7 [(improbable.entity_id) = true];
+}
+
+extend improbable.EntityState {
+  optional BuildData build = 1015
+    [(improbable.entity_state_options) = {
+      state_synchronized: false
+      state_queryable: false
+    }];
+}
+     

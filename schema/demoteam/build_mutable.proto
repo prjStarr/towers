@@ -1,0 +1,22 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+
+
+message BuildMutableData {
+  // Dynamic number of blocks
+  optional int32 numBlocks = 1;
+  // Complete if numBlocks==maxBlocks
+  optional int32 maxBlocks = 2;
+}
+
+extend improbable.EntityState {
+  optional BuildMutableData buildMutable = 1020
+    [(improbable.entity_state_options) = {
+      state_synchronized: false
+      state_queryable: true
+    }];
+}
+     

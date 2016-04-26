@@ -1,0 +1,9 @@
+--number_of_cubes=300
+--number_of_gatherers=10
+--cube_spawn_radius=75
+
+--cube_up_impulse=1
+--cube_lateral_impulse=500
+--cube_impulse_interval_millis=2000
+
+--restart=2

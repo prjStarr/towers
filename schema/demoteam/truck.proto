@@ -1,0 +1,19 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+message TruckData {
+  optional int64 buildId = 1 [(improbable.entity_id) = true, (improbable.option) = true];
+  optional double secondsLookingForBuild = 2;
+  optional double secondsBeforeMakingNewBuild = 3;
+}
+
+extend improbable.EntityState {
+  optional TruckData builder = 1005
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: false
+    }];
+}
+     

@@ -1,0 +1,21 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+import "demoteam/build_geometry.proto";
+
+
+
+message ExplosiveData {
+  optional double timer = 1;
+  optional demoteam.BuildGeometry armedBy = 2 [(improbable.option) = true];
+}
+
+extend improbable.EntityState {
+  optional ExplosiveData explosive = 1013
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: true
+    }];
+}
+     

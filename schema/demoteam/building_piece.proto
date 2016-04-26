@@ -1,0 +1,20 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+import "demoteam/build_geometry.proto";
+
+message BuildingPieceData {
+  optional int64 buildId = 1 [(improbable.entity_id) = true, (improbable.option) = true];
+  optional demoteam.BuildGeometry geometry = 2;
+}
+
+extend improbable.EntityState {
+  optional BuildingPieceData buildingPiece = 1011
+    [(improbable.entity_state_options) = {
+      state_synchronized: true
+      state_queryable: true
+    }];
+}
+     

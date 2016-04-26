@@ -1,0 +1,17 @@
+syntax = "proto2";
+package schema.demoteam;
+
+import "improbable/entity_state.proto";
+
+message ParticipantData {
+  optional int64 refereeId = 1 [(improbable.entity_id) = true];
+}
+
+extend improbable.EntityState {
+  optional ParticipantData participant = 1022
+    [(improbable.entity_state_options) = {
+      state_synchronized: false
+      state_queryable: false
+    }];
+}
+     
